@@ -41,6 +41,12 @@ body{
 #darkTheme{
     display: none;
 }
+#darkTheme:hover{
+    transform: scale(1.05);
+}
+#sunTheme:hover{
+    transform: scale(1.05);
+}
 .header{
     position: fixed;
     top: 0;
