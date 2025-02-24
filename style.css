@@ -15,6 +15,7 @@
     --main-color: #00ffee;
     --black-color:black;
     --header-bg-color: rgba(0, 0, 0, 0.3);
+    --header-a-color: white; 
 }
 body.light {
     --background-color: #ffffff;       
@@ -22,7 +23,8 @@ body.light {
     --text-color: #333333;            
     --main-color: #42A5F5;             
     --black-color: #ffffff;
-    --header-bg-color:rgba(255, 255, 255, 0.3);            
+    --header-bg-color:rgba(255, 255, 255, 0.3);   
+    --header-a-color: black;         
 }
 html{
     font-size: 60%;
@@ -76,7 +78,7 @@ body{
 }
 .navbar a{
     font-size: 1.8rem;
-    color: var(--text-color);
+    color: var(--header-a-color);
     margin-left: 4rem;
     font-weight: 500;
     transition: 0.3s ease;
@@ -93,9 +95,14 @@ body{
     color: var(--main-color);
     display: none;
 }
+.navbar{
+    transition: 0.4s ease-in-out;
+}
 .navbar.active {
-    display: block;
-    position: absolute;
+    transition: 0.3s ease-in-out;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
 }
 .navbar.active a{
     margin-right: 2rem;
@@ -603,21 +610,27 @@ span{
         display: block;
     }
     .navbar{
-        position: relative;
+        position: absolute;
         top: 100%;
         right: 0;
-        width: 50%;
+        width: 100%;
+        justify-content: space-around;
         padding: 1rem 3%;
-        background: rgba(0, 0, 0, 0.8);
+        background: var(--header-bg-color);
         backdrop-filter: blur(20px);
         border-bottom-left-radius: 2rem;
+        border-bottom-right-radius: 2rem;
         border-left: 2px solid var(--main-color);
+        border-right: 2px solid var(--main-color);
         border-bottom: 2px solid var(--main-color);
-        display: none;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.4s ease-in-out;
+        display: flex;
+        transform: translateY(-100%);
+        
     }
-    .navbar .active{
-        display: block;
-    }
+  
     .navbar a{
         display: block;
         font-size: 2rem;
